@@ -1,0 +1,136 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link
+      rel="icon"
+      href="src/img/cartIcon.png"
+      type="image/jpg"
+      sizes="16x16"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>YOUR CART</title>
+  </head>
+  <body>
+    <h1 id="cartHeader">YOUR SHOPPING BAG</h1>
+    <main id="ShoppingCart"></main>
+    <script id="itemTemplate" type="text/x-handlebars-template">
+          <div class="shopping-cart">
+              <div class="column-labels">
+                  <label class="product-image"> {{itemList.length}} ITEMS</label>
+                  <label class="product-details">Product</label>
+                  <label class="size">Size</label>
+                  <label class="product-quantity">Quantity</label>
+                  <label class="total-price">Total</label>
+              </div>
+          {{#each itemList}}
+              <div class="product">
+                  <div class="product-image">
+                  <img src="{{image}}" alt="item image" />
+                  </div>
+                  <div class="product-details">
+                  <div class="product-title">{{name}}</div>
+                  <p class="product-description">
+                        Style # :{{style}}
+                  </p>
+                  <p class="product-color">
+                        Colour : {{color}}
+                  </p><br>
+                  <div>
+                        <button class="edit" type="button" data-toggle="modal" data-target="#myModal"> EDIT</button>
+                        <button id="{{id}}" class="remove"> REMOVE</button>
+                        <button class="save"> SAVE FOR LATER</button>
+                  </div>
+                  </div>
+                  <div class="size"> {{size}}</div>
+                  <div class="product-quantity">
+                  <input type="number" value="{{qty}}" min="1" />
+                  </div>
+
+                  <div class="total-price">{{price}}</div>
+              </div>
+      {{/each}}
+
+
+
+        <div class="totals">
+        <div class="contactNew">
+                <ul id="contactListNew">
+                    <li><span>Need help or have questions?</span></li>
+                    <li><span>Call Customer Service at 1-800-555-5555</span></li>
+                    <li><a>Chat with one of our stylists</a></li>
+                    <li><a>See Return &amp; exchange policy</a></li>
+                </ul>
+                </div>
+          <div class="totals-item">
+            <label>ENTER PROMOTION CODE OR GIFT CARD</label>
+            <div class="promocode" id="cart-subtotal"><input type="text" /><button type="submit">APPLY</button></div>
+          </div>
+          <div class="totals-item">
+                <label>SUBTOTAL</label>
+                <div class="totals-value" id="cart-shipping">{{totalValue}}</div>
+              </div>
+          <div class="totals-item">
+            <label>PROMOTION CODE JF10 APPLIED</label>
+            <div class="totals-value" id="cart-tax">-{{promocodeValue}}</div>
+          </div>
+          <div class="totals-item">
+                <label>  ESTIMATED SHIPPING* <br />You quality for free shipping
+                    because your order is above $50*</label>
+                <div class="shipping-charge" id="cart-tax">FREE</div>
+              </div>
+          <div class="totals-item totals-item-total">
+            <label>ESTIMATED TOTAL <br />Tax will be applied during checkout</label>
+            <div class="totals-value" id="cart-total">{{finalValue}}</div>
+          </div>
+        </div>
+
+        <div class="checkout"><a class="contShop">CONTINUE SHOPPING</a><button class="btn btn-primary">CHECKOUT</button></div>
+      </div>
+
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="modal-item-info">
+                            <h4 >ITEM NAME </h4>
+                            <p class="modalImgPrice">21</p>
+                            <p><select name="sizeSelector" id="sizeSelector">
+                                <option value="Size" selected>Size</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                            </select>
+                            <select name="QtySelector" id="QtySelector">
+                                    <option value="1"selected>QTY:1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                        </p>
+                            <button type="button" class="btn btn-primary">ADD TO BAG</button>
+                    </div>
+                     <div class="modal-item-img">
+                         <img src="./src/img/modalPaint.PNG" alt="selected item image">
+                     </div>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+    </script>
+  </body>
+</html>
