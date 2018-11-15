@@ -4,25 +4,31 @@ const Handlebars = require("handlebars")
 
 export const loadShoppingCart = () => {
   const currentState = store.getState()
-  if (currentState.items === undefined) {
+  if (currentState.items.itemList.length === 0) {
     getItemsForCart().then(itemdata => {
       createCartView(itemdata)
       for (var i = 0; i < itemdata.itemList.length; i++) {
         var id = itemdata.itemList[i].id
-        document.getElementById("" + id).addEventListener("click", function() {
+        document.getElementById("remove" + id).addEventListener("click", function() {
           removeFromCart(id)
         })
+        document.getElementById("edit" + id).addEventListener("click", function() {
+          updateCart(id)
+        })
       }
-      store.dispatch({type: "LOADCART", dataItem: {items: itemdata}})
+      store.dispatch({type: "loadcart", dataItem: {items: itemdata}})
     })
   }
   else {
     createCartView(currentState.items)
     for (var i = 0; i < currentState.items.itemList.length; i++) {
       var id = currentState.items.itemList[i].id
-      document
-        .getElementById("" + id)
-        .addEventListener("click", removeFromCart(id))
+      document.getElementById("remove" + id).addEventListener("click", function() {
+        removeFromCart(event)
+      })
+      document.getElementById("edit" + id).addEventListener("click", function() {
+        updateCart(id)
+      })
     }
   }
 }
@@ -40,8 +46,13 @@ const createCartView = itemdata => {
   itemContainer.innerHTML = generatedItemHtml
 }
 
-const removeFromCart = itemId => {
-  console.log("current item id:" + itemId)
-  store.dispatch({type: "remove", dataItem: itemId})
-  removeItemFromCart(itemId)
+const removeFromCart = event => {
+  console.log("removeFromCart :current item id:" + event.target.id.substr(6))
+  store.dispatch({type: "remove", dataItem: parseInt(event.target.id.substr(6))})
+  removeItemFromCart(parseInt(event.target.id.substr(6)))
 }
+
+const updateCart = (event) => {
+  console.log("removeFromCart :current item id:" + event.target.id.substr(4))
+}
+

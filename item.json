@@ -4,16 +4,6 @@
       {
         "name": "SOLID GREEN COTTON TSHIRT",
         "style": "MS13KT1906",
-        "color": "Red",
-        "size": "S",
-        "price": "11.00",
-        "qty": "1",
-        "image": "./src/img/BlueTShirt-bicubic.jpg",
-        "id": 1
-      },
-      {
-        "name": "SOLID GREEN COTTON TSHIRT",
-        "style": "MS13KT1906",
         "color": "Blue",
         "size": "S",
         "price": "11.00",
@@ -25,15 +15,15 @@
         "name": "SOLID GREEN COTTON TSHIRT",
         "style": "MS13KT1906",
         "color": "Green",
-        "size": "M",
+        "size": "S",
         "price": "11.00",
-        "qty": "2",
+        "qty": "1",
         "image": "./src/img/Shirt-lanczos3.jpg",
         "id": 3
       }
     ],
-    "totalValue": 33,
+    "totalValue": 22,
     "promocodeValue": "7.00",
-    "finalValue": 26
+    "finalValue": 15
   }
 }
