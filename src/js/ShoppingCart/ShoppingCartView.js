@@ -44,19 +44,6 @@ export const selectedImageView = itemId => {
   </div>`
 
   generateHtmlWithHandlebars(templateHtml, "selectedImage", itemId)
-  // var currentState = store.getState()
-  // var itemListTemp = currentState.items.itemList
-  // var itemdata = {}
-  // for (let i = 0; i < itemListTemp.length; i += 1) {
-  //   if (itemListTemp[i].id === itemId) {
-  //     itemdata = itemListTemp[i]
-  //   }
-  // }
-  // var compiledItemTemplate = Handlebars.compile(templateHtml)
-  // var selectedImageTemplate = compiledItemTemplate(itemdata)
-
-  // const container = document.querySelector("#selectedImage")
-  // container.innerHTML = selectedImageTemplate
 }
 
 export const previewImagesView = itemId => {
