@@ -43,3 +43,21 @@ export const removeItemFromCart = itemId => {
       .catch(error => console.error("Error:", error))
   })
 }
+
+export const updateCartWIthNewDetailsService = items => {
+  const url = "http://localhost:3000/items"
+  fetch(url, {
+    method: "POST",
+    body: JSON.stringify(items),
+    headers: {
+      Accept: "application/json, text/plain,*/*",
+      "Content-type": "application/json",
+    },
+  })
+    .then(res => res.json())
+    .then(data1 => {
+      console.log("Success:", data1)
+      console.log("New entry has beed updated")
+    })
+    .catch(error => console.error("Error:", error))
+}

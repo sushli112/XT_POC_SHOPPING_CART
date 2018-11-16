@@ -24,7 +24,7 @@
     <script id="itemTemplate" type="text/x-handlebars-template">
           <div class="shopping-cart">
               <div class="column-labels">
-                  <label class="product-image"> {{itemList.length}} ITEMS</label>
+                  <label class="product-image boldLabel"> {{itemList.length}} ITEMS</label>
                   <label class="product-details">Product</label>
                   <label class="size">Size</label>
                   <label class="product-quantity">Quantity</label>
@@ -33,7 +33,7 @@
           {{#each itemList}}
               <div class="product">
                   <div class="product-image">
-                  <img src="{{image}}" alt="item image" />
+                  <img id="image{{id}}" src="{{image}}" alt="item image" data-toggle="modal" data-target="#itemView"/>
                   </div>
                   <div class="product-details">
                   <div class="product-title">{{name}}</div>
@@ -49,15 +49,14 @@
                         <button class="save"> SAVE FOR LATER</button>
                   </div>
                   </div>
-                  <div class="size"> {{size}}</div>
+                  <div class="size">{{size}}</div>
                   <div class="product-quantity">
-                  <input type="number" value="{{qty}}" min="1" />
+                  <input type="number" value="{{qty}}" min="1" aria-label="Quantity"/>
                   </div>
 
-                  <div class="total-price">{{price}}</div>
+                  <div class="total-price">{{totalPrice}}</div>
               </div>
       {{/each}}
-
 
 
         <div class="totals">
@@ -71,7 +70,7 @@
                 </div>
           <div class="totals-item">
             <label>ENTER PROMOTION CODE OR GIFT CARD</label>
-            <div class="promocode" id="cart-subtotal"><input type="text" /><button type="submit">APPLY</button></div>
+            <div class="promocode" id="cart-subtotal"><input type="text" aria-label="promocode" /><button type="submit">APPLY</button></div>
           </div>
           <div class="totals-item">
                 <label>SUBTOTAL</label>
@@ -79,7 +78,7 @@
               </div>
           <div class="totals-item">
             <label>PROMOTION CODE JF10 APPLIED</label>
-            <div class="totals-value" id="cart-tax">-{{promocodeValue}}</div>
+            <div class="totals-value" id="promocode-value">-{{promocodeValue}}</div>
           </div>
           <div class="totals-item">
                 <label>  ESTIMATED SHIPPING* <br />You quality for free shipping
@@ -92,12 +91,10 @@
           </div>
         </div>
 
-        <div class="checkout"><a class="contShop">CONTINUE SHOPPING</a><button class="btn btn-primary">CHECKOUT</button></div>
+        <div class="checkout"><a class="contShop">CONTINUE SHOPPING</a><button id="checkout" class="btn btn-default">CHECKOUT</button></div>
       </div>
-
-      <section id= "selectedImage">
-
-      </section>
     </script>
   </body>
+  <section id="selectedImage"></section>
+  <section id="previewImage"></section>
 </html>

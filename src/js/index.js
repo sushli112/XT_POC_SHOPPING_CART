@@ -3,7 +3,10 @@ import "bootstrap"
 import "popper.js"
 import {store} from "./store"
 
-import {loadShoppingCart} from "./ShoppingCart/ShoppingCartController"
+import {
+  loadShoppingCart,
+  updateCartWIthNewDetails,
+} from "./ShoppingCart/ShoppingCartController"
 
 loadShoppingCart()
 store.subscribe(() => {
@@ -11,3 +14,5 @@ store.subscribe(() => {
   console.log("currentstate :" + currentState)
   loadShoppingCart()
 })
+
+$("body").on("click", "#updateCart", updateCartWIthNewDetails)
