@@ -289,11 +289,12 @@ label {
       }
     }
   }
+}
+@media screen and (max-width: 1000px) {
   .contactNew {
     display: none;
   }
 }
-
 //Modal view styling
 .modal-item-info {
   float: left;
