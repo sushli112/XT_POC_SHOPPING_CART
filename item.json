@@ -7,8 +7,8 @@
         "color": "Red",
         "size": "S",
         "price": 11,
-        "totalPrice": 11,
-        "qty": "1",
+        "totalPrice": 22,
+        "qty": "2",
         "image": "./src/img/Rope1.jpeg",
         "image2": "./src/img/Rope2.jpeg",
         "image3": "./src/img/Rope3.jpeg",
@@ -54,8 +54,8 @@
         "id": 4
       }
     ],
-    "totalValue": 77,
+    "totalValue": 88,
     "promocodeValue": 7,
-    "finalValue": 70
+    "finalValue": 81
   }
 }
